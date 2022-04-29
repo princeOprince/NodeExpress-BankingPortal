@@ -15,7 +15,10 @@ const accounts = JSON.parse(accountData);
 const users = JSON.parse(userData);
 
 app.get('/', (req, res, next) => {
-    res.render('index', { title: 'Index' });
+    res.render('index', { 
+        title: 'Account Summary',
+        accounts: accounts 
+    });
 });
 
 app.listen(3000, () => {
