@@ -51,7 +51,8 @@ app.get('/transfer', (req, res, next) => {
 });
 
 app.post('/transfer', (req, res, next) => {
- 
+  // Calculate and set the from balance
+ const fromBalance = accounts[req.body.from].balance - amount;
 });
 
 app.listen(3000, () => {
