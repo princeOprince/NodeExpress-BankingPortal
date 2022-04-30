@@ -47,20 +47,22 @@ app.get('/profile', (req, res, next) => {
 });
 
 app.get('/transfer', (req, res, next) => {
-  res.render('transfer')
+  res.render('transfer');
 });
 
 app.post('/transfer', (req, res, next) => {
   // Calculate and set the from balance
-  const fromBalance = accounts[req.body.from].balance - parseInt(amount);
+  accounts[req.body.from].balance = 
+    accounts[req.body.from].balance - parseInt(req.body.amount);
   // Calculate and set the to balance
-  const toBalance = accounts[req.body.to].balance + parseInt(amount);
+  accounts[req.body.to].balance = 
+    accounts[req.body.to].balance + parseInt(req.body.amount);
   //  Convert account data to JSON
   const accountsJSON = JSON.stringify(accounts);
   // Write account data to JSON file
   fs.writeFileSync(path.join(__dirname, 'json', 'accounts.json'), 
                 accountsJSON, 'utf8');
-
+  res.render('transfer', { message: "Transfer Completed" });
 });
 
 app.listen(3000, () => {
