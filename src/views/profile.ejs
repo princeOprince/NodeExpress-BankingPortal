@@ -1,0 +1,17 @@
+<%- include('header'); %>
+
+<h1>Profile</h1>
+
+<div>
+  <%- user.forEach( detail => { %>
+    <p><%= detail.name %></p>
+    <p><%= detail.username %></p>
+    <p><%= detail.phone %></p>
+    <p><%= detail.email %></p>
+    <p><%= detail.address %></p>
+  <%- }) %>
+</div>
+
+<a href="/">Back to Account Summary</a>
+
+<%- include('footer'); %>
