@@ -69,6 +69,10 @@ app.get('/payment', (req, res, next) => {
   res.render('payment', { account: accounts.credit });
 });
 
+app.post('/payment', (req, res, next) => {
+
+});
+
 app.listen(3000, () => {
   console.log('PS Project Running on port 3000!');
 })
