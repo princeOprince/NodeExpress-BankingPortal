@@ -52,7 +52,9 @@ app.get('/transfer', (req, res, next) => {
 
 app.post('/transfer', (req, res, next) => {
   // Calculate and set the from balance
- const fromBalance = accounts[req.body.from].balance - amount;
+ const fromBalance = accounts[req.body.from].balance - parseInt(amount);
+  // Calculate and set the to balance
+ const toBalance = accounts[req.body.to].balance + parseInt(amount);
 });
 
 app.listen(3000, () => {
