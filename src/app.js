@@ -16,49 +16,53 @@ const accounts = JSON.parse(accountData);
 const users = JSON.parse(userData);
 
 app.get('/', (req, res, next) => {
-    res.render('index', { 
-        title: 'Account Summary',
-        accounts: accounts 
-    });
+  res.render('index', {
+    title: 'Account Summary',
+    accounts: accounts
+  });
 });
 
 app.get('/savings', (req, res, next) => {
-    res.render('account', {
-        account: accounts.savings
-    });
+  res.render('account', {
+    account: accounts.savings
+  });
 });
 
 app.get('/checking', (req, res, next) => {
-    res.render('account', {
-        account: accounts.checking
-    });
+  res.render('account', {
+    account: accounts.checking
+  });
 });
 
 app.get('/credit', (req, res, next) => {
-    res.render('account', {
-        account: accounts.credit
-    });
+  res.render('account', {
+    account: accounts.credit
+  });
 });
 
 app.get('/profile', (req, res, next) => {
-    res.render('profile', {
-        user: users[0]
-    });
+  res.render('profile', {
+    user: users[0]
+  });
 });
 
 app.get('/transfer', (req, res, next) => {
-    res.render('transfer')
+  res.render('transfer')
 });
 
 app.post('/transfer', (req, res, next) => {
   // Calculate and set the from balance
- const fromBalance = accounts[req.body.from].balance - parseInt(amount);
+  const fromBalance = accounts[req.body.from].balance - parseInt(amount);
   // Calculate and set the to balance
- const toBalance = accounts[req.body.to].balance + parseInt(amount);
-//  Convert account data to JSON
-const accountsJSON = JSON.stringify(accounts);
+  const toBalance = accounts[req.body.to].balance + parseInt(amount);
+  //  Convert account data to JSON
+  const accountsJSON = JSON.stringify(accounts);
+  // Write account data to JSON file
+  fs.writeFileSync(path.join(__dirname, 'json', 'accounts.json'), 
+                accountsJSON, 'utf8');
+
 });
 
 app.listen(3000, () => {
-    console.log('PS Project Running on port 3000!');
+  console.log('PS Project Running on port 3000!');
 })
