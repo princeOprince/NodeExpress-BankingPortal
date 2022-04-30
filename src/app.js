@@ -55,6 +55,8 @@ app.post('/transfer', (req, res, next) => {
  const fromBalance = accounts[req.body.from].balance - parseInt(amount);
   // Calculate and set the to balance
  const toBalance = accounts[req.body.to].balance + parseInt(amount);
+//  Convert account data to JSON
+const accountsJSON = JSON.stringify(accounts);
 });
 
 app.listen(3000, () => {
