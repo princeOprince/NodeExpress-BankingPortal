@@ -50,6 +50,10 @@ app.get('/transfer', (req, res, next) => {
     res.render('transfer')
 });
 
+app.post('/transfer', (req, res, next) => {
+ 
+});
+
 app.listen(3000, () => {
     console.log('PS Project Running on port 3000!');
 })
