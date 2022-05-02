@@ -69,3 +69,5 @@ typings/
 # external
 *.mp4
 *.docx
+*.pdf
+*.ini
