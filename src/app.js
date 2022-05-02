@@ -52,11 +52,6 @@ app.post('/transfer', (req, res, next) => {
   // Calculate and set the to balance
   accounts[req.body.to].balance =
     accounts[req.body.to].balance + parseInt(req.body.amount);
-  //  Convert account data to JSON
-  const accountsJSON = JSON.stringify(accounts);
-  // Write account data to JSON file
-  fs.writeFileSync(path.join(__dirname, 'json', 'accounts.json'),
-    accountsJSON, 'utf8');
   res.render('transfer', { message: "Transfer Completed" });
 });
 
