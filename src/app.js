@@ -10,11 +10,6 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const accountData = fs.readFileSync('src/json/accounts.json', 'utf8');
-const userData = fs.readFileSync('src/json/users.json', 'utf8');
-const accounts = JSON.parse(accountData);
-const users = JSON.parse(userData);
-
 app.get('/', (req, res, next) => {
   res.render('index', {
     title: 'Account Summary',
