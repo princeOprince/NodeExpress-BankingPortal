@@ -53,6 +53,8 @@ app.post('/transfer', (req, res, next) => {
   // Calculate and set the to balance
   accounts[req.body.to].balance =
     accounts[req.body.to].balance + parseInt(req.body.amount);
+    
+  writeJSON();
   res.render('transfer', { message: "Transfer Completed" });
 });
 
