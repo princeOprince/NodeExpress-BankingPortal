@@ -17,24 +17,6 @@ app.get('/', (req, res, next) => {
   });
 });
 
-app.get('/savings', (req, res, next) => {
-  res.render('account', {
-    account: accounts.savings
-  });
-});
-
-app.get('/checking', (req, res, next) => {
-  res.render('account', {
-    account: accounts.checking
-  });
-});
-
-app.get('/credit', (req, res, next) => {
-  res.render('account', {
-    account: accounts.credit
-  });
-});
-
 app.get('/profile', (req, res, next) => {
   res.render('profile', {
     user: users[0]
