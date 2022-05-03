@@ -12,6 +12,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/account', accountRoutes);
+
 app.get('/', (req, res, next) => {
   res.render('index', {
     title: 'Account Summary',
