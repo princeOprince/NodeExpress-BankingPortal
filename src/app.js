@@ -1,5 +1,6 @@
 const path = require('path');
 const { accounts, users, writeJSON } = require('./data');
+const accountRoutes = require('./routes/accounts');
 
 const express = require('express');
 const app = express();
