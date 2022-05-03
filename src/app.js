@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/account', accountRoutes);
+app.use('/services', servicesRoutes);
 
 app.get('/', (req, res, next) => {
   res.render('index', {
