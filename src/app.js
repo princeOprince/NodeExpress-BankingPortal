@@ -53,7 +53,7 @@ app.post('/transfer', (req, res, next) => {
   // Calculate and set the to balance
   accounts[req.body.to].balance =
     accounts[req.body.to].balance + parseInt(req.body.amount);
-    
+
   writeJSON();
   res.render('transfer', { message: "Transfer Completed" });
 });
@@ -67,9 +67,8 @@ app.post('/payment', (req, res, next) => {
     accounts.credit.balance - parseInt(req.body.amount);
   accounts.credit.available =
     accounts.credit.available + parseInt(req.body.amount);
-  const accountsJSON = JSON.stringify(accounts);
-  fs.writeFileSync(path.join(__dirname, 'json', 'accounts.json'),
-    accountsJSON, 'utf8');
+  
+  writeJSON();
   res.render('payment', { 
     message: "Payment Successful",
     account: accounts.credit
