@@ -34,3 +34,5 @@ router.post('/payment', (req, res, next) => {
     account: accounts.credit
   });
 });
+
+module.exports = router;
